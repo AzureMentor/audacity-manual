@@ -2,7 +2,7 @@
 <html class="client-nojs" lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8"/>
-<title>Installing Effect, Generator and Analyzer plug-ins on Mac OS X/macOS - Audacity Manual</title>
+<title>Installing Effect, Generator and Analyzer plug-ins on Mac - Audacity Manual</title>
 
 
 
@@ -25,7 +25,7 @@
 				
 				<div class="mw-indicators">
 </div>
-				<h1 id="firstHeading" class="firstHeading" lang="en">Installing Effect, Generator and Analyzer plug-ins on Mac OS X/macOS</h1>
+				<h1 id="firstHeading" class="firstHeading" lang="en">Installing Effect, Generator and Analyzer plug-ins on Mac</h1>
 				
 				<div id="bodyContent" class="mw-body-content">
 					<div id="siteSub">From Audacity Development Manual</div>
@@ -35,7 +35,17 @@
 					<!-- start content -->
 					<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><br />
 </p>
+
 <div class="intro">You can download and install plug-ins to add extra functionality to Audacity. Plug-ins can give you extra effects, or more audio generation and analysis capabilities.  </div>
+<div style="margin-top:12px; margin-bottom:12px; margin-left:24px; margin-right:24px">
+<table style="background:#FEFFD0; color:black; border:1px solid #999999; padding-left:12px; padding-right:12px" width="100%" align="center">
+
+<tr>
+<td width="30px" valign="top" align="center"><a href="https://alphamanual.audacityteam.org/man/File:Bulbicon.png" class="image" title="Bulb icon"><img alt="Bulb icon" src="../m/images/d/d7/bulbicon.png" width="32" height="32" /></a>
+</td>
+<td align="left" valign="top">It is <i><b>strongly</b></i> recommended, when installing third-party plug-ins, that you thoroughly test the plug-in on non-critical project data before using it in production use on a live project. <p>Many such plug-ins are known to fail or crash Audacity, see <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Plug-ins_that_crash_Audacity_or_fail_to_work_properly_in_Audacity">this Wiki page</a>.</p>
+</td></tr></table>
+</div>
 <div style="margin-top:12px; margin-bottom:12px; margin-left:24px; margin-right:24px">
 <table style="background:#FEFFD0; color:black; border:1px solid #999999; padding-left:12px; padding-right:12px" width="100%" align="center">
 
@@ -80,9 +90,15 @@
 </p>
 <div id="nyquist_install"></div>
 <h2><span class="mw-headline" id="Installing_Nyquist_plug-ins">Installing Nyquist plug-ins</span></h2>
-
 <p><a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Nyquist">Nyquist</a> plug-ins provide most of the optional effects underneath the divider in the <a href="effect_menu.html" title="Effect Menu">Effect menu</a>. They are also used to provide some of Audacity's built-in audio <a href="generate_menu.html" title="Generate Menu">generators</a> and <a href="analyze_menu.html" title="Analyze Menu">analysis tools</a>. A wide range of additional Nyquist effect, generation and analysis plug-ins can be obtained from <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Download_Nyquist_Plug-ins">Download Nyquist Plug-ins</a> on our Wiki.
-</p><p>To install new Nyquist plug-ins, place them in Audacity's "Plug-Ins" folder at <b>~/Library/Application Support/audacity/Plug-Ins</b>.
+</p><p>The easiest way to install a new Nyquist plug-in is to use the Tool <span class="npi">Nyquist Plug-in Installer</span> which is itself a Nyquist plug-in that simplifies the installation of other Nyquist plug-ins.
+</p><p>All Nyquist plug-ins are plain text files that have the <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Filename_extension">filename extension</a> '.NY'. This plug-in installer provides a file browser for selecting the plug-in '.NY' file, and then copies the file to the correct location. Once the plug-in has been installed, it may be enabled in the <a rel="nofollow" class="external text" href="https://manual.audacityteam.org/man/manage_effects_generators_and_analyzers.html"><b>Plug-in Manager</b></a>.
+</p>
+<dl><dd><b>Accessed by:</b> <span class="menu">Tools &gt; <a href="nyquist_plug_in_installer.html" title="Nyquist Plug-in Installer">Nyquist Plug-in Installer...</a></span></dd>
+<dd><span title="Nyquist Plug-in Installer dialog, Widows 10 version"><img alt="Nyquist Plug-in Installer.png" src="../m/images/1/13/nyquist_plug_in_installer.png" width="442" height="181" /></span></dd></dl>
+<h3><span class="mw-headline" id="Installing_a_Nyquist_plug-in_manually">Installing a Nyquist plug-in manually</span></h3>
+<p>It is also possible to add a new Nyquist plug-in manually by adding it to the correct location that Audacity expects.
+</p><p>Place them in Audacity's "Plug-Ins" folder at <b>~/Library/Application Support/audacity/Plug-Ins</b>.
 </p><p>To load the new effects into Audacity so they are available in the menu, use the <a href="manage_effects_generators_and_analyzers.html" title="Manage Effects, Generators and Analyzers">Plug-in Manager: Effects, Generators and Analyzers</a> dialog.
 </p>
 <div style="margin-top:12px; margin-bottom:12px; margin-left:24px; margin-right:24px">
@@ -175,37 +191,43 @@ All the directories where you can place VST plug-ins are searched recursively, w
 <p>Please see <a href="faq_installation_and_plug_ins.html#launch" title="FAQ:Installation and Plug-Ins">this FAQ</a>    
 </p>
 <div class="note">If you discover a specific plug-in that misbehaves in Audacity, please email our <a rel="nofollow" class="external text" href="https://web.audacityteam.org/contact/#feedback">feedback address</a>. Please include any available <a href="help_menu.html#data" title="Help Menu">Debug report</a> that Audacity generates.</div>
-
+<p>Please see this Wiki page for <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Plug-ins_that_crash_Audacity_or_fail_to_work_properly_in_Audacity"><b>Plug-ins that crash Audacity or fail to work properly in Audacity</b></a>
+</p><p><br />
+</p>
+<div id="links"></div>
+<h2><span class="mw-headline" id="Links">Links</span></h2>
+<p><a href="installing_and_updating_audacity_on_mac_os_x.html" title="Installing and updating Audacity on Mac OS X"><b>&gt;</b>&#160; Installing and updating Audacity on Mac</a> <br />
+</p>
 <!-- 
 NewPP limit report
-Cached time: 20190225150059
+Cached time: 20191114150702
 Cache expiry: 86400
 Dynamic content: false
-CPU time usage: 0.102 seconds
-Real time usage: 0.105 seconds
-Preprocessor visited node count: 221/1000000
-Preprocessor generated node count: 686/1000000
-Post‐expand include size: 9093/2097152 bytes
-Template argument size: 6767/2097152 bytes
+CPU time usage: 0.103 seconds
+Real time usage: 0.106 seconds
+Preprocessor visited node count: 248/1000000
+Preprocessor generated node count: 740/1000000
+Post‐expand include size: 6859/2097152 bytes
+Template argument size: 4172/2097152 bytes
 Highest expansion depth: 3/40
 Expensive parser function count: 0/100
 -->
 
 <!-- 
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   22.436      1 - -total
- 16.91%    3.795      1 - Template:Tip
- 13.14%    2.948      1 - Template:Intro
- 12.58%    2.822      8 - Template:Menu
- 10.17%    2.282      5 - Template:Note
-  9.51%    2.133      2 - Template:Button
-  8.29%    1.861      4 - Template:Advice
-  5.55%    1.246      1 - Template:CheckboxNotChecked
-  5.35%    1.201      1 - Template:Path
-  5.21%    1.168      1 - Template:Ednote
+100.00%   19.264      1 - -total
+ 16.78%    3.233      2 - Template:Tip
+ 12.77%    2.460      9 - Template:Menu
+ 12.01%    2.314      1 - Template:Intro
+  9.50%    1.830      5 - Template:Note
+  9.15%    1.763      2 - Template:Button
+  8.11%    1.563      4 - Template:Advice
+  6.22%    1.198      1 - Template:Ednote
+  5.24%    1.010      1 - Template:Path
+  5.10%    0.983      1 - Template:CheckboxNotChecked
 -->
 
-<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5428-0!*!0!!*!5!* and timestamp 20190225150059 and revision id 63165
+<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5428-0!*!0!!*!5!* and timestamp 20191114150702 and revision id 64908
  -->
 </div>
 										<!-- end content -->
@@ -240,7 +262,8 @@ Transclusion expansion time report (%,ms,calls,template)
 <ul><li> <a href="preferences.html" title="Preferences"><span title="A guide to Preferences, which let you change most of the default behaviors of Audacity">Preferences</span></a></li>
 <li> <a href="keyboard_shortcut_reference.html" title="Keyboard Shortcut Reference"><span title="A list of all the commands in the Audacity menus and all pre-defined keyboard shortcuts">Key-bindings</span></a></li>
 <li> <a href="customization.html#plug-ins" title="Customization"><span title="You can download and install plug-ins to add extra functionality to Audacity. Plug-ins can give you extra effects, or more audio generation and analysis capability.">Plug-ins</span></a></li>
-<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li></ul></li></ul>
+<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li>
+<li> <a href="customizing_toolbar_layout.html" title="Customizing Toolbar Layout"><span title="Audacity&#39;s toolbars can all be re-positioned (in the tooldocks or free-floating) and some can be resized.">Toolbars</span></a></li></ul></li></ul>
 		</div>
 		</div>
 		<div class="generated-sidebar portlet" id="p-Reference" role="navigation">
@@ -277,7 +300,7 @@ Transclusion expansion time report (%,ms,calls,template)
 									<a href="https://www.mediawiki.org/"><img src="../m/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/m/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /m/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>
 							</div>
 					
-		<div align="center"><ul id="f_list"><li>This version created on 2019-02-26 - <a href="https://alphamanual.audacityteam.org/man/Installing_Effect,_Generator_and_Analyzer_plug-ins_on_MAC_OS_X">Check current version of this page (development Manual)</a></li></ul></div>
+		<div align="center"><ul id="f_list"><li>This version created on 2019-11-15 - <a href="https://alphamanual.audacityteam.org/man/Installing_Effect,_Generator_and_Analyzer_plug-ins_on_MAC_OS_X">Check current version of this page (development Manual)</a></li></ul></div>
 </div>
 		</div>
 		</body></html>

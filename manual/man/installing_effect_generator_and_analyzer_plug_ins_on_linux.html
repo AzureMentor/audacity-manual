@@ -37,6 +37,15 @@
 <p>Audacity on GNU/Linux supports a large number of <a href="effect_menu.html#nyquist_effects" title="Effect Menu">Nyquist</a>, <a href="effect_menu.html#LADSPA_effects" title="Effect Menu">LADSPA</a>, <a href="effect_menu.html#LV2_effects" title="Effect Menu">LV2</a> and <a href="analyze_menu.html#vamp" title="Analyze Menu">Vamp</a> effects. <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Virtual_Studio_Technology">VST</a> effects are now supported in Audacity on Linux and can be installed as described at <a href="effect_menu.html#vst" title="Effect Menu">VST Effects</a>. However native Linux VST effects are quite rare. Consequently, if a specific VST effect is required on Linux, it may be necessary to employ <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Linux_Issues#vst">workarounds</a> such as running Audacity for Windows in a <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machine</a>.
 </p>
 Audacity supports 64-bit effects in VST, LADSPA and Vamp format on 64-bit Linux systems (conversely, 32-bit plug-ins in those formats will not load into Audacity on 64-bit Linux).  </div>
+<div style="margin-top:12px; margin-bottom:12px; margin-left:24px; margin-right:24px">
+<table style="background:#FEFFD0; color:black; border:1px solid #999999; padding-left:12px; padding-right:12px" width="100%" align="center">
+
+<tr>
+<td width="30px" valign="top" align="center"><a href="https://alphamanual.audacityteam.org/man/File:Bulbicon.png" class="image" title="Bulb icon"><img alt="Bulb icon" src="../m/images/d/d7/bulbicon.png" width="32" height="32" /></a>
+</td>
+<td align="left" valign="top">It is <i><b>strongly</b></i> recommended, when installing third-party plug-ins, that you thoroughly test the plug-in on non-critical project data before using it in production use on a live project. <p>Many such plug-ins are known to fail or crash Audacity, see <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Plug-ins_that_crash_Audacity_or_fail_to_work_properly_in_Audacity">this Wiki page</a>.</p>
+</td></tr></table>
+</div>
 <h2><span class="mw-headline" id="Contents">Contents</span></h2>
 <ol><li><a href="#nyquist_install">Installing Nyquist plug-ins</a></li>
 <li><a href="#vst_install">Installing VST plug-ins</a></li>
@@ -54,8 +63,16 @@ Audacity supports 64-bit effects in VST, LADSPA and Vamp format on 64-bit Linux 
 <td>unzip file.zip -d destination_folder
 </td></tr></table>
 Alternatively, most Linux distributions include a GUI application for extracting ZIP archives.</div>
+<p><a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Nyquist">Nyquist</a> plug-ins provide most of the optional effects underneath the divider in the <a href="effect_menu.html" title="Effect Menu">Effect menu</a>. They are also used to provide some of Audacity's built-in audio <a href="generate_menu.html" title="Generate Menu">generators</a> and <a href="analyze_menu.html" title="Analyze Menu">analysis tools</a>. A wide range of additional Nyquist effect, generation and analysis plug-ins can be obtained from <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Download_Nyquist_Plug-ins">Download Nyquist Plug-ins</a> on our Wiki.
+</p><p>The easiest way to install a new Nyquist plug-in is to use the Tool <span class="npi">Nyquist Plug-in Installer</span> which is itself a Nyquist plug-in that simplifies the installation of other Nyquist plug-ins.
+</p><p>All Nyquist plug-ins are plain text files that have the <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Filename_extension">filename extension</a> '.NY'. This plug-in installer provides a file browser for selecting the plug-in '.NY' file, and then copies the file to the correct location. Once the plug-in has been installed, it may be enabled in the <a rel="nofollow" class="external text" href="https://manual.audacityteam.org/man/manage_effects_generators_and_analyzers.html"><b>Plug-in Manager</b></a>.
+</p>
+<dl><dd><b>Accessed by:</b> <span class="menu">Tools &gt; <a href="nyquist_plug_in_installer.html" title="Nyquist Plug-in Installer">Nyquist Plug-in Installer...</a></span></dd>
+<dd><span title="Nyquist Plug-in Installer dialog, Widows 10 version"><img alt="Nyquist Plug-in Installer.png" src="../m/images/1/13/nyquist_plug_in_installer.png" width="442" height="181" /></span></dd></dl>
+<p><br />
+</p>
 <h3><span class="mw-headline" id="Per_user_installation">Per user installation</span></h3>
-<p>This is generally the preferred way to install Nyquist plug-ins as it can be performed with standard user permissions.
+<p>It is also possible to add a new Nyquist plug-in manually by adding it to the correct location that Audacity expects, it can be performed with standard user permissions.
 </p>
 <ol><li> If it does not already exist, create a folder called <b>.audacity-files</b> in your home directory. Note that the dot as the first character indicates that this will be a hidden folder, so if using a graphical file browser, enable viewing hidden files (for most graphical file browsers, this is an option in the "View" menu).</li>
 <li> Add a sub-directory to <b>.audacity-files</b> and name it <b>plug-ins</b>. The location of this folder may be described as <b>~/.audacity-file/plug-ins</b>, where "~/" means your home folder.</li>
@@ -198,35 +215,42 @@ Alternatively, most Linux distributions include a GUI application for extracting
 <p>Please see <a href="faq_installation_and_plug_ins.html#launch" title="FAQ:Installation and Plug-Ins">this FAQ</a>    
 </p>
 <div class="note">If you discover a specific plug-in that misbehaves in Audacity, please email our <a rel="nofollow" class="external text" href="https://web.audacityteam.org/contact/#feedback">feedback address</a>. Please include any available <a href="help_menu.html#data" title="Help Menu">Debug report</a> that Audacity generates.</div>
-
+<p>Please see this Wiki page for <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Plug-ins_that_crash_Audacity_or_fail_to_work_properly_in_Audacity"><b>Plug-ins that crash Audacity or fail to work properly in Audacity</b></a>.
+</p><p><br />
+</p>
+<div id="links"></div>
+<h2><span class="mw-headline" id="Links">Links</span></h2>
+<p><a href="installing_and_updating_audacity_on_linux.html" title="Installing and updating Audacity on Linux"><b>&gt;</b>&#160; Installing and updating Audacity on Linux</a> <br />
+</p>
 <!-- 
 NewPP limit report
-Cached time: 20190226062726
+Cached time: 20191115101438
 Cache expiry: 86400
 Dynamic content: false
-CPU time usage: 0.101 seconds
-Real time usage: 0.105 seconds
-Preprocessor visited node count: 191/1000000
-Preprocessor generated node count: 602/1000000
-Post‐expand include size: 9307/2097152 bytes
-Template argument size: 6934/2097152 bytes
+CPU time usage: 0.110 seconds
+Real time usage: 0.114 seconds
+Preprocessor visited node count: 214/1000000
+Preprocessor generated node count: 658/1000000
+Post‐expand include size: 10115/2097152 bytes
+Template argument size: 7381/2097152 bytes
 Highest expansion depth: 3/40
 Expensive parser function count: 0/100
 -->
 
 <!-- 
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   18.929      1 - -total
- 32.87%    6.223      7 - Template:Note
- 14.97%    2.834      1 - Template:Intro
- 13.24%    2.506      5 - Template:Code
- 11.11%    2.103      2 - Template:Button
-  8.42%    1.594      3 - Template:Advice
-  7.66%    1.450      2 - Template:Menu
-  6.75%    1.278      1 - Template:CheckboxNotChecked
+100.00%   19.600      1 - -total
+ 29.51%    5.784      7 - Template:Note
+ 15.41%    3.021      1 - Template:Intro
+ 11.29%    2.212      5 - Template:Code
+  9.11%    1.786      2 - Template:Button
+  7.86%    1.541      3 - Template:Advice
+  7.58%    1.485      3 - Template:Menu
+  7.12%    1.395      1 - Template:Tip
+  5.23%    1.025      1 - Template:CheckboxNotChecked
 -->
 
-<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5429-0!*!0!!*!5!* and timestamp 20190226062726 and revision id 58841
+<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5429-0!*!0!!*!5!* and timestamp 20191115101438 and revision id 64548
  -->
 </div>
 										<!-- end content -->
@@ -261,7 +285,8 @@ Transclusion expansion time report (%,ms,calls,template)
 <ul><li> <a href="preferences.html" title="Preferences"><span title="A guide to Preferences, which let you change most of the default behaviors of Audacity">Preferences</span></a></li>
 <li> <a href="keyboard_shortcut_reference.html" title="Keyboard Shortcut Reference"><span title="A list of all the commands in the Audacity menus and all pre-defined keyboard shortcuts">Key-bindings</span></a></li>
 <li> <a href="customization.html#plug-ins" title="Customization"><span title="You can download and install plug-ins to add extra functionality to Audacity. Plug-ins can give you extra effects, or more audio generation and analysis capability.">Plug-ins</span></a></li>
-<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li></ul></li></ul>
+<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li>
+<li> <a href="customizing_toolbar_layout.html" title="Customizing Toolbar Layout"><span title="Audacity&#39;s toolbars can all be re-positioned (in the tooldocks or free-floating) and some can be resized.">Toolbars</span></a></li></ul></li></ul>
 		</div>
 		</div>
 		<div class="generated-sidebar portlet" id="p-Reference" role="navigation">
@@ -298,7 +323,7 @@ Transclusion expansion time report (%,ms,calls,template)
 									<a href="https://www.mediawiki.org/"><img src="../m/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/m/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /m/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>
 							</div>
 					
-		<div align="center"><ul id="f_list"><li>This version created on 2019-02-26 - <a href="https://alphamanual.audacityteam.org/man/Installing_Effect,_Generator_and_Analyzer_plug-ins_on_Linux">Check current version of this page (development Manual)</a></li></ul></div>
+		<div align="center"><ul id="f_list"><li>This version created on 2019-11-15 - <a href="https://alphamanual.audacityteam.org/man/Installing_Effect,_Generator_and_Analyzer_plug-ins_on_Linux">Check current version of this page (development Manual)</a></li></ul></div>
 </div>
 		</div>
 		</body></html>

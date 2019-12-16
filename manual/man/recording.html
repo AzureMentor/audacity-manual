@@ -56,7 +56,8 @@
 <li> <a href="#region">Recording a region in a new track</a></li></ul></li>
 <li> <a href="#duration">Recording for a specific length of time</a></li>
 <li> <a href="#arm">Arming Audacity for recording</a></li>
-<li> <a href="#dropouts">Dropouts (small skips) in your recording</a></li></ol>
+<li> <a href="#dropouts">Dropouts (small skips) in your recording</a></li>
+<li> <a href="#hardware">Hardware influence on Recording Quality</a></li></ol>
 <p><br />
 </p>
 <div id="setup"></div>
@@ -141,11 +142,10 @@
 <table style="background:#FEFFD0; color:black; border:1px solid #999999; padding-left:12px; padding-right:12px" width="100%" align="center">
 
 <tr>
-<td width="30px" valign="top" align="center"><a href="https://alphamanual.audacityteam.org/man/File:Bulbicon.png" class="image" title="Bulb icon"><img alt="Bulb icon" src="../m/images/d/d7/bulbicon.png" width="32" height="32" /></a>
+<td width="30px" valign="top" align="center"><a href="https://alphamanual.audacityteam.org/man/File:Warningicon.png" class="image" title="Warning icon"><img alt="Warning icon" src="../m/images/b/ba/warningicon.png" width="24" height="24" /></a>
 </td>
-<td align="left" valign="top">Unless you wish to overdub from the previous track(s), if any, ensure <span class="menu">Transport &gt; Transport Options &gt; <a href="transport_menu_transport_options.html#overdub_onoff" title="Transport Menu: Transport Options">Overdub (on/off)</a></span> is disabled, "<b>off</b>", which is <i><b>not</b></i> the default setting.
-</td></tr></table>
-</div>
+<td align="left" valign="top">Ensure that you use the <b>Shift modified Record</b> to make the recording.  <p>If you use the ordinary Record then the recording will append record to the end of the track and ignore the selection.  Or if you have an empty project and use the Selection Toolbar to make a selection then, with plain Record, Audacity will create a new track starting at the selection start time but it will carry on past the end of the selection until you Stop it. </p>
+</td></tr></table></div>
 <p><br />
 </p>
 <div id="arm"></div>
@@ -171,6 +171,7 @@
 </p><p>When recording stops, a message box alerts the user  and a label track, called "Dropouts", is added showing the lost parts, labeled with consecutive numbers.  This will be an additional new label track if you already have a label track or tracks.
 </p>
 <dl><dd><span title="Dropout detection warning message and error label track"><img alt="Dropouts detected.png" src="../m/images/5/51/dropouts_detected.png" width="659" height="275" /></span></dd></dl>
+<div class="note">For information on how to prevent dropouts please see this FAQ <a href="faq_recording_troubleshooting.html#skips" title="FAQ:Recording - Troubleshooting"><b>How can I record without small skips (dropouts) or duplications?</b></a>.</div>
 <div style="margin-top:12px; margin-bottom:12px; margin-left:24px; margin-right:24px">
 <table style="background:#FEFFD0; color:black; border:1px solid #999999; padding-left:12px; padding-right:12px" width="100%" align="center">
 
@@ -182,36 +183,42 @@
 <li>Audacity makes its best effort to detect dropouts as they occur, but detection may be incomplete for some operating systems and <a href="device_toolbar.html#host" title="Device Toolbar">audio hosts</a>.</li></ul>
 </td></tr></table>
 </div>
-
+<p><br />
+</p>
+<div id="hardware"></div>
+<h2><span class="mw-headline" id="Hardware_influence_on_Recording_Quality">Hardware influence on Recording Quality</span></h2>
+<p>The Audacity <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Audacity_Wiki_Home_Page">Wiki</a> has some useful information on how your <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Hardware_influence_on_recording_quality"><b>hardware can affect your recording quality</b></a>.
+</p>
 <!-- 
 NewPP limit report
-Cached time: 20190226112135
+Cached time: 20191115102024
 Cache expiry: 86400
 Dynamic content: false
-CPU time usage: 0.148 seconds
-Real time usage: 0.154 seconds
-Preprocessor visited node count: 345/1000000
-Preprocessor generated node count: 878/1000000
-Post‐expand include size: 7783/2097152 bytes
-Template argument size: 4291/2097152 bytes
+CPU time usage: 0.156 seconds
+Real time usage: 0.163 seconds
+Preprocessor visited node count: 354/1000000
+Preprocessor generated node count: 896/1000000
+Post‐expand include size: 8048/2097152 bytes
+Template argument size: 4552/2097152 bytes
 Highest expansion depth: 4/40
 Expensive parser function count: 0/100
 -->
 
 <!-- 
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   29.638      1 - -total
- 24.11%    7.145      5 - Template:Tip
- 23.80%    7.054      9 - Template:Shortcut
- 20.64%    6.116      1 - Template:Intro
- 13.92%    4.125      6 - Template:Key
-  6.87%    2.037      2 - Template:Button
-  5.71%    1.693      2 - Template:Note
-  5.70%    1.690      2 - Template:Ednote
-  5.67%    1.680      3 - Template:Menu
+100.00%   34.915      1 - -total
+ 23.12%    8.074      9 - Template:Shortcut
+ 22.23%    7.760      4 - Template:Tip
+ 19.73%    6.889      1 - Template:Intro
+ 14.05%    4.907      6 - Template:Key
+  7.71%    2.692      2 - Template:Button
+  6.15%    2.146      3 - Template:Note
+  5.15%    1.797      1 - Template:Advice
+  5.10%    1.781      2 - Template:Menu
+  4.49%    1.569      2 - Template:Ednote
 -->
 
-<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5251-0!*!0!!*!5!* and timestamp 20190226112135 and revision id 62865
+<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5251-0!*!0!!*!5!* and timestamp 20191115102024 and revision id 65355
  -->
 </div>
 										<!-- end content -->
@@ -246,7 +253,8 @@ Transclusion expansion time report (%,ms,calls,template)
 <ul><li> <a href="preferences.html" title="Preferences"><span title="A guide to Preferences, which let you change most of the default behaviors of Audacity">Preferences</span></a></li>
 <li> <a href="keyboard_shortcut_reference.html" title="Keyboard Shortcut Reference"><span title="A list of all the commands in the Audacity menus and all pre-defined keyboard shortcuts">Key-bindings</span></a></li>
 <li> <a href="customization.html#plug-ins" title="Customization"><span title="You can download and install plug-ins to add extra functionality to Audacity. Plug-ins can give you extra effects, or more audio generation and analysis capability.">Plug-ins</span></a></li>
-<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li></ul></li></ul>
+<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li>
+<li> <a href="customizing_toolbar_layout.html" title="Customizing Toolbar Layout"><span title="Audacity&#39;s toolbars can all be re-positioned (in the tooldocks or free-floating) and some can be resized.">Toolbars</span></a></li></ul></li></ul>
 		</div>
 		</div>
 		<div class="generated-sidebar portlet" id="p-Reference" role="navigation">
@@ -283,7 +291,7 @@ Transclusion expansion time report (%,ms,calls,template)
 									<a href="https://www.mediawiki.org/"><img src="../m/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/m/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /m/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>
 							</div>
 					
-		<div align="center"><ul id="f_list"><li>This version created on 2019-02-26 - <a href="https://alphamanual.audacityteam.org/man/Recording">Check current version of this page (development Manual)</a></li></ul></div>
+		<div align="center"><ul id="f_list"><li>This version created on 2019-11-15 - <a href="https://alphamanual.audacityteam.org/man/Recording">Check current version of this page (development Manual)</a></li></ul></div>
 </div>
 		</div>
 		</body></html>

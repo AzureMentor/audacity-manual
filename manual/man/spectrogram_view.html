@@ -34,7 +34,19 @@
 
 					<!-- start content -->
 					<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="intro">The <i><b>Spectrogram</b></i> View of an audio track provides a visual indication of how the energy in different frequency bands changes over time. The Spectrogram can show sudden onset of a sound, so it can often be easier to see clicks and other glitches or to line up beats in this view rather than in one of the <a href="audio_track_dropdown_menu.html#Waveform" title="Audio Track Dropdown Menu">waveform</a> views.
-<p>To select Spectrogram view, click on the track name (or the black triangle) in the <a href="audio_tracks.html#panel" title="Audio Tracks"> Track Control Panel</a> which opens the <a href="audio_track_dropdown_menu.html" title="Audio Track Dropdown Menu">Track Dropdown Menu</a>.</p></div>
+<p>To select Spectrogram view, click on the track name (or the black triangle) in the <a href="audio_tracks.html#panel" title="Audio Tracks"> Track Control Panel</a> which opens the <a href="audio_track_dropdown_menu.html" title="Audio Track Dropdown Menu">Track Dropdown Menu</a>.</p> </div>
+<div style="margin-top:12px; margin-bottom:12px; margin-left:24px; margin-right:24px">
+<table style="background:#FEFFD0; color:black; border:1px solid #999999; padding-left:12px; padding-right:12px" width="100%" align="center">
+
+<tr>
+<td width="30px" valign="top" align="center"><a href="https://alphamanual.audacityteam.org/man/File:Bulbicon.png" class="image" title="Bulb icon"><img alt="Bulb icon" src="../m/images/d/d7/bulbicon.png" width="32" height="32" /></a>
+</td>
+<td align="left" valign="top"><a href="#spectral_selection"><b>Spectral selections</b></a>, made in <a href="audio_track_dropdown_menu.html#spgram" title="Audio Track Dropdown Menu"><b>Spectrogram</b></a> view, are used to make selections that include a frequency range as well as a time range on tracks in .
+<ul><li>They can be used with special spectral editing effects to make changes to the <i><b><a href="glossary.html#frequency" title="Glossary">frequency</a></b></i> content of the selected audio.</li>
+<li>Among other purposes, spectral selection and editing can be used for cleaning up unwanted sound, enhancing certain resonances, changing the quality of a voice or removing mouth sounds from voice work.</li>
+<li>For full details, see <a href="spectral_selection.html" title="Spectral Selection"><b>Spectral Selection and Editing</b></a>. </li></ul>
+</td></tr></table>
+</div>
 
 
 
@@ -72,7 +84,7 @@
 <p>The default settings are:
 </p>
 <ul><li> Window size: 1024</li>
-<li> Window type: Hanning</li>
+<li> Window type: Hann</li>
 <li> Zero padding factor: 1</li>
 <li> Minimum frequency (Hz): 0</li>
 <li> Maximum frequency (Hz): 8000</li>
@@ -120,7 +132,7 @@
 <dl><dd><span title="Vertical Scale (spectrogram) with context menu"><img alt="VS spectrogram context menu - Simple mode.png" src="../m/images/6/67/vs_spectrogram_context_menu_simple_mode.png" width="183" height="268" /></span> </dd></dl>
 <div id="types"></div>
 <h2><span class="mw-headline" id="Effect_of_Different_Window_Types">Effect of Different Window Types</span></h2>
-<p>The image above uses the <i>Hanning</i> Window Type.</p>
+<p>The image above uses the <i>Hann</i> Window Type.</p>
 <p>Changing to the <i>Blackman-Harris</i> Window Type gets rid of much of the spectral leakage at the expense of lower frequency resolution (note that the red band near the 2.0k mark is wider).</p>
 <dl><dd><span title="Spectrogram test track in spectrogram view with Blackman-Harris window"><img alt="SpectrogramView 08.png" src="../m/images/3/3a/spectrogramview_08.png" width="601" height="154" /></span></dd></dl>
 <p>Changing to a rectangular window causes the track to be redrawn a little faster at the expense of very bad spectral leakage. However, the frequency resolution is better (the red band near the 2.0k mark is narrower).</p>
@@ -165,62 +177,67 @@
 <ul><li><b>Period</b>: This scale is the reciprocal of frequency (1/frequency) and attempts to visualise Enhanced Autocorrelation. It is therefore best used with the "Pitch (EAC)" algorithm, which is the same as the "Pitch (EAC)" View Mode choice in previous Audacity versions. To aid comparison with other scales, small period values (high frequencies) are plotted at the top. This scale tends to give the most screen estate to plotted areas, but Logarithmic scale gives the more correct representation of pitch, because <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Equal_temperament">Equal Temperament</a> divides the octave into 12 parts, all of which are equal on a logarithmic scale. </li></ul>
 <div id="settings"></div>
 <h2><span class="mw-headline" id="Example_of_choosing_the_right_settings_for_the_job">Example of choosing the right settings for the job</span></h2>
-<p>Here is a music track displayed in Spectrogram view with the default settings of: Window size of 256, Window type of Hanning, Minimum Frequency 0 and Maximum frequency 8000. This is not very useful for identifying the different musical elements.</p>
+<p>Here is a music track displayed in Spectrogram view with the default settings of: Window size of 256, Window type of Hann, Minimum Frequency 0 and Maximum frequency 8000. This is not very useful for identifying the different musical elements.</p>
 <dl><dd><span title="Music track shown in Spectrogram view and default settings"><img alt="SpectrogramView 10a.png" src="../m/images/6/68/spectrogramview_10a.png" width="601" height="247" /></span></dd></dl>
 <p>Here is the same track displayed in Logarithmic Spectrogram view. This is still not very useful for identifying the different musical elements.</p>
 <dl><dd><span title="Music track shown in Logarithmic Spectrogram view and default settings"><img alt="SpectrogramView 10.png" src="../m/images/7/70/spectrogramview_10.png" width="601" height="247" /></span></dd></dl>
 <p>Different settings can improve the visibility of certain elements in the recording. In the image below the settings were:  
 </p>
 <ul><li> Window size of 2048 (larger window size improves frequency resolution)</li>
-<li> Window type of Hanning (no change from previous)</li>
+<li> Window type of Hann (no change from previous)</li>
 <li> Zero padding factor of 1 (no change from previous)</li>
 <li> Minimum Frequency 20 (remove display of sub-sonic frequencies)</li>
 <li> Maximum frequency 22000 (include display of higher frequencies).</li></ul>
 <dl><dd><span title="Music track shown in Logarithmic Spectrogram view with window size 2048, minimum frequency 20, and maximum frequency 22000"><img alt="SpectrogramView 11.png" src="../m/images/4/49/spectrogramview_11.png" width="601" height="247" /></span></dd></dl>
 <div id="spectral_selection"></div>
-<h2><span class="mw-headline" id="Spectral_selection">Spectral selection</span></h2>
-<div class="note">In order to define a <a href="spectral_selection.html" title="Spectral Selection">spectral selection</a> you need to be in <a href="audio_track_dropdown_menu.html#spgram" title="Audio Track Dropdown Menu"><b>Spectrogram</b></a> view. Also you must have checked on the Enable Spectral Selection in either <a href="spectrograms_preferences.html" title="Spectrograms Preferences">Spectrograms Preferences</a>, or the <a href="audio_track_dropdown_menu.html" title="Audio Track Dropdown Menu">dropdown menu</a> of the <a href="audio_tracks.html#panel" title="Audio Tracks">Track Control Panel</a> choosing <b>Spectrogram Settings...</b>.
-</div>
+<h2><span class="mw-headline" id="Spectral_selection"><a href="spectral_selection.html" title="Spectral Selection">Spectral selection</a></span></h2>
+<div class="note">In order to define a <a href="spectral_selection.html" title="Spectral Selection"><b>spectral selection</b></a> you need to be in <a href="audio_track_dropdown_menu.html#spgram" title="Audio Track Dropdown Menu"><b>Spectrogram</b></a> view. 
+<p>Also you must have checked on the Enable Spectral Selection in either <a href="spectrograms_preferences.html" title="Spectrograms Preferences">Spectrograms Preferences</a>, or the <a href="audio_track_dropdown_menu.html" title="Audio Track Dropdown Menu">dropdown menu</a> of the <a href="audio_tracks.html#panel" title="Audio Tracks">Track Control Panel</a> choosing <b>Spectrogram Settings...</b>.
+</p><p><i><b>Spectral Selection</b></i> is used to make selections that include a frequency range as well as a time range on tracks in <a href="audio_track_dropdown_menu.html#spgram" title="Audio Track Dropdown Menu"><b>Spectrogram</b></a> view. Spectral Selection is used with special <a href="#edit">spectral editing</a> effects to make changes to the <i><b><a href="glossary.html#frequency" title="Glossary">frequency</a></b></i> content of the selected audio. Among other purposes, spectral selection and editing can be used for cleaning up unwanted sound, enhancing certain resonances, changing the quality of a voice or removing mouth sounds from voice work. 
+</p>
+For full details, see <a href="spectral_selection.html" title="Spectral Selection"><b>Spectral Selection and Editing</b></a>.</div>
 <p>To define a time range combined with a spectral range, hover at a vertical position that you want to be the approximate center frequency to act on then click and drag a selection horizontally. A horizontal line appears beside the I-Beam mouse pointer that defines the center frequency. 
 </p><p>Drag vertically, with or without continuing to drag horizontally, to define the range of frequencies to be acted on. A "box" containing a combined frequency and time range is now drawn in a colored tint as shown below <i>(the exact color of the tint will depend on the version of Audacity and the settings of your monitor)</i>: 
 </p>
 <dl><dd><span title="Audio track in spectrogram view with annotated spectral selection"><img alt="Spectral 02.png" src="../m/images/1/11/spectral_02.png" width="559" height="194" /></span></dd></dl>
-<p>The frequencies in the spectral selection can then be  <i><b><a href="glossary.html#filter" title="Glossary">filtered</a></b></i> in various ways, affecting their <i><b><a href="glossary.html#amplitude" title="Glossary">amplitude</a></b></i>, using the special <a href="spectral_selection.html#edit" title="Spectral Selection">Spectral edit</a> effects in the <a href="effect_menu.html" title="Effect Menu">Effect Menu</a>. This can be useful to remove unwanted extraneous noises from the audio or to apply very specific tone quality changes to it. For full details, see <a href="spectral_selection.html" title="Spectral Selection">Spectral Selection</a>.
+<p>The frequencies in the spectral selection can then be  <i><b><a href="glossary.html#filter" title="Glossary">filtered</a></b></i> in various ways, affecting their <i><b><a href="glossary.html#amplitude" title="Glossary">amplitude</a></b></i>, using the special <a href="spectral_selection.html#edit" title="Spectral Selection">Spectral edit</a> effects in the <a href="effect_menu.html" title="Effect Menu">Effect Menu</a>. This can be useful to remove unwanted extraneous noises from the audio or to apply very specific tone quality changes to it. 
+</p><p>For full details, see <a href="spectral_selection.html" title="Spectral Selection"><b>Spectral Selection and Editing</b></a>.
 </p><p><br />
 </p>
 <div id="spectrogram_settings"></div>
 <h2><span class="mw-headline" id="Per_track_Spectrogram_Settings">Per track <a href="spectrogram_settings.html" title="Spectrogram Settings">Spectrogram Settings</a></span></h2>
 <p>It is possible to temporarily change the Spectrogram settings for a particular Spectrogram track by opening the <a href="audio_track_dropdown_menu.html" title="Audio Track Dropdown Menu">Audio Track Dropdown Menu</a> on the Spectrogram track you want to change, then choose <b>Spectrogram Settings...</b>.  This opens a dialog similar to <a href="spectrograms_preferences.html" title="Spectrograms Preferences">Spectrograms Preferences</a> with the same settings available.
 </p>
-<dl><dd><span title="Audio track Spectrogram Settings dialog"><img alt="Spectrogram Track Settings.png" src="../m/images/b/b3/spectrogram_track_settings.png" width="432" height="387" /></span></dd></dl>
+<dl><dd><span title="Audio track Spectrogram Settings dialog"><img alt="Spectrogram Track Settings.png" src="../m/images/b/b3/spectrogram_track_settings.png" width="426" height="383" /></span></dd></dl>
 <p>Changes you make when you press the <span class="button">OK</span> button only persist for that track while the project window is open. This is the case even if you save a project. Use Spectrograms Preferences instead to make permanent changes to the default Spectrogram settings with which a new Spectrogram track will open.
 </p><p>See <a href="spectrogram_settings.html" title="Spectrogram Settings">Spectrogram Settings</a> for more details.
 </p>
 <!-- 
 NewPP limit report
-Cached time: 20190226112056
+Cached time: 20191115102021
 Cache expiry: 86400
 Dynamic content: false
-CPU time usage: 0.162 seconds
-Real time usage: 0.175 seconds
-Preprocessor visited node count: 160/1000000
-Preprocessor generated node count: 396/1000000
-Post‐expand include size: 2942/2097152 bytes
-Template argument size: 2687/2097152 bytes
+CPU time usage: 0.169 seconds
+Real time usage: 0.180 seconds
+Preprocessor visited node count: 167/1000000
+Preprocessor generated node count: 422/1000000
+Post‐expand include size: 4586/2097152 bytes
+Template argument size: 3996/2097152 bytes
 Highest expansion depth: 3/40
 Expensive parser function count: 0/100
 -->
 
 <!-- 
 Transclusion expansion time report (%,ms,calls,template)
-100.00%    8.769      1 - -total
- 28.60%    2.508      1 - Template:Intro
- 20.32%    1.782      4 - Template:Ednote
- 15.72%    1.378      2 - Template:Note
- 15.37%    1.348      1 - Template:Button
+100.00%   10.691      1 - -total
+ 25.86%    2.765      1 - Template:Intro
+ 15.53%    1.661      4 - Template:Ednote
+ 14.21%    1.519      1 - Template:Button
+ 13.13%    1.404      2 - Template:Note
+ 10.51%    1.123      1 - Template:Tip
 -->
 
-<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5030-0!*!0!!*!5!* and timestamp 20190226112056 and revision id 60051
+<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5030-0!*!0!!*!5!* and timestamp 20191115102021 and revision id 64369
  -->
 </div>
 										<!-- end content -->
@@ -255,7 +272,8 @@ Transclusion expansion time report (%,ms,calls,template)
 <ul><li> <a href="preferences.html" title="Preferences"><span title="A guide to Preferences, which let you change most of the default behaviors of Audacity">Preferences</span></a></li>
 <li> <a href="keyboard_shortcut_reference.html" title="Keyboard Shortcut Reference"><span title="A list of all the commands in the Audacity menus and all pre-defined keyboard shortcuts">Key-bindings</span></a></li>
 <li> <a href="customization.html#plug-ins" title="Customization"><span title="You can download and install plug-ins to add extra functionality to Audacity. Plug-ins can give you extra effects, or more audio generation and analysis capability.">Plug-ins</span></a></li>
-<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li></ul></li></ul>
+<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li>
+<li> <a href="customizing_toolbar_layout.html" title="Customizing Toolbar Layout"><span title="Audacity&#39;s toolbars can all be re-positioned (in the tooldocks or free-floating) and some can be resized.">Toolbars</span></a></li></ul></li></ul>
 		</div>
 		</div>
 		<div class="generated-sidebar portlet" id="p-Reference" role="navigation">
@@ -292,7 +310,7 @@ Transclusion expansion time report (%,ms,calls,template)
 									<a href="https://www.mediawiki.org/"><img src="../m/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/m/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /m/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>
 							</div>
 					
-		<div align="center"><ul id="f_list"><li>This version created on 2019-02-26 - <a href="https://alphamanual.audacityteam.org/man/Spectrogram_View">Check current version of this page (development Manual)</a></li></ul></div>
+		<div align="center"><ul id="f_list"><li>This version created on 2019-11-15 - <a href="https://alphamanual.audacityteam.org/man/Spectrogram_View">Check current version of this page (development Manual)</a></li></ul></div>
 </div>
 		</div>
 		</body></html>

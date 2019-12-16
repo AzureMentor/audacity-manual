@@ -33,79 +33,189 @@
 										<div id="jump-to-nav" class="mw-jump">Jump to: <a href="#column-one">navigation</a>, <a href="https://alphamanual.audacityteam.org/man/New_features_in_this_release#searchInput">search</a></div>
 
 					<!-- start content -->
-					<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><br />
-</p>
+					<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
 <center><a href="http://audacityteam.org/" title="size=50%" rel="nofollow"><img alt="size=50%" src="../m/images/8/88/audacity_logo_signika_512_transparent.png" width="512" height="138" /></a></center>
-<div class="intro"><span style="font-size:120%"><b>This page is an overview of the key new functionality that has been introduced in Audacity 2.3.1</b></span>
-<ul><li> <span style="font-size:110%">Details of all the major changes since 2.3.0 can be found in <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Release_Notes_2.3.1">Release Notes 2.3.1</a>.</span></div></li></ul>
+<div class="intro"><span style="font-size:120%"><b>This page is an overview of the key new functionality that has been introduced in Audacity 2.3.3</b></span>
+<ul><li> <span style="font-size:110%">Details of all the major changes since 2.3.2 can be found in <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Release_Notes_2.3.3">Audacity Release Notes 2.3.3</a>.</span></div></li></ul>
 <h2><span class="mw-headline" id="Contents">Contents</span></h2>
-<ol><li><a href="#mac64">64-bit Mac build</a></li>
-<li><a href="#scrubruler">Scrub Ruler</a></li>
-<li><a href="#avz">Advanced Vertical Zooming</a></li>
-<li><a href="#microfades">Micro-fades option added</a></li>
-<li><a href="#ril">Regular Interval Labels improvements</a></li>
+<ol><li><a href="#maintenance">Maintenance release</a>
+<ul><li><a href="#aac">Quality slider now works for AAC/M4A Export</a></li>
+<li><a href="#1904">Leading blank space treated as silence on Export</a></li>
+<li><a href="#2213">Exports are now based on "What you hear is what you get"</a></li></ul></li>
+<li><a href="#eq">Equalization effect split</a></li>
+<li><a href="#eol">End-of-life retired functionality</a>
+<ul><li><a href="#workbench">Nyquist Workbench</a></li>
+<li><a href="#vreol">Vocal Remover</a></li>
+<li><a href="#odleol">On-Demand loading of aliased files</a></li>
+<li><a href="#noleol">Normalize on Load feature Removed</a></li></ul></li>
 <li><a href="#bugs">Bug Fixes</a></li></ol>
 </li></ul></li></ul>
 </li></ol>
 <p><br />
 </p>
-<div id="mac64"></div>
-<h2><span class="mw-headline" id="64-bit_Mac_build">64-bit Mac build</span></h2>
-<p>The 2.3.1 release of Audacity for macOS is now a 64-bit build and will only run on modern 64-bit Macs, running OSX 10.7 or later.
-</p><p>Note carefully that if you use the <a href="installing_and_updating_audacity_on_mac_os_x.html#maclame" title="Installing and updating Audacity on Mac OS X"><b>LAME</b></a> library for MP3 export or the <a href="installing_and_updating_audacity_on_mac_os_x.html#macff" title="Installing and updating Audacity on Mac OS X"><b>FFmpeg</b></a> library you will need to install the 64-bit versions of those libraries.
-</p><p><i>FFmpeg is used for importing and exporting a much larger <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/FFmpeg_integration#Functionality">range of audio formats</a> including </i><b><a href="glossary.html#aac" title="Glossary">M4A (AAC)</a></b><i>, AC3, AMR (narrow band) and </i><b><a href="glossary.html#wma" title="Glossary">WMA</a></b><i>. </i>
+<div id="maintenance"></div>
+<h2><span class="mw-headline" id="Maintenance_release">Maintenance release</span></h2>
+<p>2.3.3 is a maintenance release to reorganize the structure of the underlying code.  This is so that we can make better changes for the user experience in the future.
+</p><p>There are no new and almost no changed features in this release.  However, we have fixed many long standing bugs, at the same time as making the restructuring.  We are also taking the opportunity to retire some features which are better done by other approaches.
 </p><p><br />
+Earlier we had set ourselves a target of 20% live bugs out of total bugs by August 2019.  Two years ago 35% of bugs were live bugs, and the live bugs total was just over 600.  We actually met our target early, by 1st June 2019.  As at 1st September we were at 16% live bugs with just 356 live bugs.  See <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Bug_Counts"><b>this table</b></a> in the Audacity Wiki. 
+</p><p><br />
+Two bugs we fixed which noticeably change behavior are:
 </p>
-<div id="scrubruler"></div>
-<h2><span class="mw-headline" id="Scrub_Ruler">Scrub Ruler</span></h2>
-<p>The <a href="scrubbing_and_seeking.html#scrubruler" title="Scrubbing and Seeking">Scrub Ruler</a> is now turned <b>"off"</b> by default and is not displayed.  The reason we did this was because we found too many users were accidentally clicking in the Scrub Ruler and then finding themselves stuck in Scrubbing mode.
-</p><p>This will only affect you if you opt to reset your preferences settings as part of the 2.3.1 installation, manually reset your preferences or install Audacity for the first time.
-</p><p>If you want/need to turn it back on again use either the <span class="menu">Transport &gt; <a href="transport_menu_scrubbing.html" title="Transport Menu: Scrubbing">Scrubbing</a></span> and check the Scrub Ruler to be "on".  Or right click in the <b><a href="timeline.html" title="Timeline">Timeline</a></b> and select <b><a href="timeline.html#menu" title="Timeline">Enable Scrub Ruler</a></b>.
+<div id="aac"></div>
+<h3><span class="mw-headline" id="Quality_slider_now_works_for_AAC.2FM4A_Export">Quality slider now works for AAC/M4A Export</span></h3>
+<p>An important bug-fix for this release is that we have finally made the Quality slider work when exporting AAC/M4A files.  Formerly, although you could move the slider, the setting of slider was ignored by Audacity and it used always a constant bit rate (CBR) 196 kbps (stereo) file or 98 kbps (mono) file.
+</p><p>This was  <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=344">P2 Bug 344</a> - M4A Quality slider has no control of bitrate setting or AAC quality
 </p>
+<div id="1904"></div>
+<h3><span class="mw-headline" id="Leading_blank_space_treated_as_silence_on_Export">Leading blank space treated as silence on Export</span></h3>
+<p>For this release we have added a feature where by default when exporting audio any leading blank space in the tracks or project to be exported is treated as silence and appropriate leading silence will pad the exported audio.  
+</p><p>Previously many users were confused when they had carefully positioned their audio with an initial offset (white/gray space) that when they Exported the track this offset was ignored and the exported file started immediately with the audio with no offset.
+</p><p>This particularly confused multi-track users who export and subsequently re-import tracks and are surprised/puzzled when their tracks no longer line up properly.
+</p><p>This makes for greater consistency in Audacity with regard to pre-existing behaviors:
+</p>
+<ul><li> leading blank space has always been treated as silence when playing such an offset audio track</li>
+<li> if a track has embedded blank white/gray space between audio clips, upon export those embedded chunks are rendered as silence to preserve the relative  positioning of the clips.</li>
+<li> Mix&amp;Render has always preserved leading blank white/gray offsets</li></ul>
+<div class="note">There is a new option in <a href="import_export_preferences.html#export" title="Import - Export Preferences">Import/Export Preferences</a> where you can turn this off and revert to Audacity's previous behavior with leading blank space ignored on Export.
 <div style="margin-top:12px; margin-bottom:12px; margin-left:24px; margin-right:24px">
 <table style="background:#FEFFD0; color:black; border:1px solid #999999; padding-left:12px; padding-right:12px" width="100%" align="center">
 
 <tr>
 <td width="30px" valign="top" align="center"><a href="https://alphamanual.audacityteam.org/man/File:Bulbicon.png" class="image" title="Bulb icon"><img alt="Bulb icon" src="../m/images/d/d7/bulbicon.png" width="32" height="32" /></a>
 </td>
-<td align="left" valign="top">The <b>Scrub</b> and <b>Seek</b> commands are still readily available from the <a href="transport_menu_scrubbing.html" title="Transport Menu: Scrubbing"><b>Transport</b></a> menu.
+<td align="left" valign="top">A use case for turning this "on" is track-based multiple export where you have "songs" lined up one after the other on different tracks - and in this case you probably do not want the offsets exported as long silences at the start of "songs".
 </td></tr></table>
-</div>
-<p><br />
-</p>
-<div id="avz"></div>
-<h2><span class="mw-headline" id="Advanced_Vertical_Zooming">Advanced Vertical Zooming</span></h2>
-<p>We have added a new command to the <span class="menu"> View &gt; <a href="view_menu_zoom.html" title="View Menu: Zoom">Zoom</a></span> menu for turning <b><a href="vertical_zooming.html#advanced" title="Vertical Zooming">Advanced Vertical Zooming</a></b> "on" or "off".
-</p><p>Advanced Vertical Zooming enables you to use left-click gestures in the <a href="audio_tracks.html#scale" title="Audio Tracks">Vertical Scale</a> to control zooming <i>(this is in addition to the Simple mode vertical zooming commands available from the right-click context menu in the Vertical Scale)</i>. 
-</p>
-<div class="note">In version 2.2.2 we changed the way <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Release_Notes_2.2.2#Vertical_Zooming_changes">vertical zooming</a> works, splitting it into Simple and Advanced forms with the Advanced form turned off by default.  Advanced mode could be turned on in <a href="tracks_behaviors_preferences.html" title="Tracks Behaviors Preferences">Tracks Behaviors</a> preferences but many users failed to find it there.  Accordingly we introduced this new command to make this more discoverable. </div>
-<p><br />
-</p>
-<div id="microfades"></div>
-<h2><span class="mw-headline" id="Micro_Fades">Micro Fades</span></h2>
-<p>Micro fades (introduced in 2.3.0) can reduce the click when playback starts and stops.  We've now made this an opt-in feature rather than provide it all the time, this can be set in <a href="playback_preferences.html#options" title="Playback Preferences">Playback Preferences</a>. 
+</div> </div>
+<p>This was  <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1904">P3 Bug 1904</a> - Audio offset not honored in Export/Export Multiple/Export Selection
 </p><p><br />
 </p>
-<div id="ril"></div>
-<h2><span class="mw-headline" id="Regular_Interval_Labels_improvements">Regular Interval Labels improvements</span></h2>
-<p>We have made some improvements to Regular Interval Labels, accessed by <span class="menu"> Tools &gt; <a href="regular_interval_labels.html" title="Regular Interval Labels">Regular Interval Labels</a> </span>.
-</p><p>In particular we have made it possible to create <a href="label_tracks.html#type" title="Label Tracks"><b>range labels</b></a> and not just point labels with this Tool.  You can do this by specifying the label length in the new input field <b>Length of label region (seconds)</b>
-</p><p>See <a href="regular_interval_labels.html" title="Regular Interval Labels"><b>this page</b></a> for full details of how the improved Tool works.
+<div id="2213"></div>
+<h3><span class="mw-headline" id="Exports_are_now_based_on_.22What_you_hear_is_what_you_get.22">Exports are now based on "What you hear is what you get"</span></h3>
+<p>From this version onwards When making multi-track exports the export will be based entirely upon the track hear when preview playing the audio in the project prior to Export.
+</p><p>I also means than any grayed-out tracks will not be exported.
+</p><p>Formerly with the <b>Solo Button</b> behavior set to the expert mode "Multi-Track" in <b>Tracks Behaviors" preferences the exports were instead based on the state of the </b>Mute<b> buttons, using the </b>Solo<b> buttons could leave some tracks grayed out and not playable on preview, but still exported on Export. </b>
+</p><p>Users who leave the <b>Solo Button</b> set to its default <b>Simple</b> mode will notice no difference as a result of this change.
+</p><p>This was  <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2213">P2 Bug 2213</a> - When Solo button is "Multi-track" Export is not accurate - can lead to data loss
+</p><p><br />
+</p>
+<div id="eq"></div>
+<h2><span class="mw-headline" id="Equalization_effect_split">Equalization effect split</span></h2>
+<p>The former Equalization effect has now been split into two separate effects.  We did this as part of fixing some bugs with the effect:
+</p>
+<h3><span class="mw-headline" id="Filter_Curve_-_equalization_using_drawn_curves"><b><a href="filter_curve.html" title="Filter Curve">Filter Curve</a></b> - equalization using drawn curves</span></h3>
+<dl><dd><a href="https://alphamanual.audacityteam.org/man/File:Filter_Curve.png" class="image"><img alt="Filter Curve.png" src="../m/images/4/43/filter_curve.png" width="776" height="496" /></a></dd></dl>
+<h3><span class="mw-headline" id="Graphic_EQ_-_equalization_using_sliders"><b><a href="graphic_eq.html" title="Graphic EQ">Graphic EQ</a></b> - equalization using sliders</span></h3>
+<dl><dd><a href="https://alphamanual.audacityteam.org/man/File:Graphic_EQ.png" class="image"><img alt="Graphic EQ.png" src="../m/images/8/83/graphic_eq.png" width="806" height="219" /></a></dd></dl>
+<p><br />
+</p><p><br />
+</p>
+<div id="eol"></div>
+<h2><span class="mw-headline" id="End-of-life_retired_functionality">End-of-life retired functionality</span></h2>
+<p>For this maintenance release we have decided to withdraw some pieces of functionaality which are considered to be no longer useful or relevant.
+</p>
+<div id="workbench"></div>
+<h3><span class="mw-headline" id="Nyquist_Workbench_End_of_Life">Nyquist Workbench End of Life</span></h3>
+<p>The optional module Nyquist Workbench has been declared obsolete for version 2.3.3 onwards.
+</p><p>We plan to replace it later with a modern alternative <a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Proposal_Nyquist_IDE"><b>Nyquist IDE</b></a>.  A lot of the important functionality is already built into the Nyquist prompt in Audacity.
+</p>
+<div id="vreol"></div>
+<h3><span class="mw-headline" id="Vocal_Remover_End_of_Life">Vocal Remover End of Life</span></h3>
+<p>We have finally decided to no longer ship the legacy effect <b>Vocal Remover</b> with Audacity.  It has been superseded for a while now by the newer and more powerful <a href="vocal_reduction_and_isolation.html" title="Vocal Reduction and Isolation">Vocal Reduction and Isolation</a> effect.  We upgraded the effect slightly with this release, so that it now can also do exactly what the old effect did.
+</p><p>New users who install 2.3.3 as their first Audacity will not see Vocal Remover in the effect menu.  Upgraders from earlier versions of Audacity will still find this legacy effect in their effects list <i>(because it was supplied as a Nyquist plug-in)</i>.  If you no longer wish to see it in the Effect menu simply mark it as <b>Disabled</b> in the <a href="manage_effects_generators_and_analyzers.html" title="Manage Effects, Generators and Analyzers">Plug-in Manager</a>.
+</p>
+<div id="odleol"></div>
+<h3><span class="mw-headline" id="On-Demand_loading_of_aliased_files_End_of_Life">On-Demand loading of aliased files End of Life</span></h3>
+<p>Audacity previously had a feature where Audacity projects could depend on uncompressed audio files (for example WAV and AIFF) that were stored outside the Audacity project and folder. This saved space but was rather dangerous, as the project could become unusable if the files were moved or renamed.
+</p><p>The space saving made some sense back in 1999 when disk storage was more expensive.  Nowadays it does not make sense.  It causes far more problems than the space saving is worth.  Previously we had defaults set to always copy audio into projects, and not try and save space.  Now we have removed the option of this ill advised space saving.  Audacity will still work with old projects that do this, but for new projects audio will always be copied in.
+</p>
+<div id="noleol"></div>
+<h3><span class="mw-headline" id="Normalize_on_Load_feature">Normalize on Load feature</span></h3>
+<p>Audacity previously had a 'mis-feature' called 'Normalize on Load' which gave the option of always normalizing newly imported audio <i>(an option that was settable in preferences)</i>.  Normalizing or alternatively compression should usually only be done as one of the last steps in producing audio, for example if one knows the audio is destined to go into an MP3 file or CD.  
+</p><p><br />
 </p><p><br />
 </p>
 <div id="bugs"></div>
 <h2><span class="mw-headline" id="Bug_Fixes">Bug Fixes</span></h2>
-<ul><li>Linux: Audacity 2.3.0 was available only for Mac and Windows, and Linux used 2.2.1.  Audacity 2.3.1 is available for Linux.</li>
-<li>Windows and Linux: Intermittent truncation of the end of a recording - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2009">Bug #2009</a></li>
-<li>Can't adjust Time Track envelope when Logarithmic scale selected - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1832">Bug #1832</a></li>
-<li>Mixer Board does not automatically update when tracks added or removed - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2022">Bug #2022</a></li>
-<li>Regular Interval Labels fails - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2014">Bug #2014</a></li>
-<li>Windows: Regular Interval Labels on multiple tracks produces multiple labels - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1298">Bug #1298</a></li>
-<li>Multiple problems with Change Pitch - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2016">Bug #2016</a></li>
-<li>Mac:  Audacity crashes when right clicking in label after copying label text to ano app - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2028">Bug #2028</a></li>
-<li>Linux: Assert on recording or generating when main Window minimized  - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2040">Bug #2040</a></li>
-<li>Windows:  Macros - "ExportMP3 before" and "ExportMP3 after" overwrite causing non-critical data loss  - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2054">Bug #2054</a></li>
-<li>Macros: Change Pitch in a Macro does not remember speed parameter setting  - see <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2069">Bug #2069</a></li></ul>
+<p>We have fixed many bugs in the course of this maintenance release:
+</p>
+<div class="note">Click on the bug number for full details in the bug thread.</div>
+<ul><li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2077">2077</a> - Mac - FFmpeg Custom options dialog opens behind Export Audio dialog</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2112">2112</a> - Crash when opening Equalization settings in a Macro</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2119">2119</a> - Linux: Incorrect behaviors in "Manage Macro"</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2127">2127</a> - Track deletion while in Record/Pause state crashes Audacity</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2133">2133</a> - Silence Audio deletes MIDI notes</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2141">2141</a> - Tabbing between labels now only works if the label track is selected</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2176">2176</a> - Crash when attempting to time shift multiple tracks</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2191">2191</a> - Linux: Many effects (Repair, Paulstretch, Reverb) much slower</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2192">2192</a> - Audacity throws warning dialog on opening project if it contains silent blockfile(s) </li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2200">2200</a> - Uncompressed exports in formats that have no (realistic) size restriction fail the 4GB trap for WAV &amp; AIFF - regression on 2.3.1</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2216">2216</a> - Mac: Cannot use Enter to effect an Effect after entering numeric data in a field - regression on 2.1.3</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2226">2226</a> - Punch&amp;Roll record inserts a squelch/screech noise at start of re-recording</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=344">344</a> - FFmpeg: M4A Quality slider has no control of bitrate setting or AAC quality</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1329">1329</a> - Mac: ENTER does not close/apply effects unless user has turned on Full Keyboard Access</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1335">1335</a> - Moving tracks or swapping stereo channels during playback does not work correctly.</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1503">1503</a> - Mac: Modal dialogs cause 100% Audacity CPU when open with any AU or graphical VST/LV2 effect</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1843">1843</a> - Tracks menu error messages do not have "?" help buttons to link to the Manual</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2199">2199</a> - crash after attempting to export as OGG at very high sample rate</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2213">2213</a> - When Solo button is "Multi-track" Export is not accurate - can lead to data loss</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=46">46</a> - GSM 6.10 files cannot be exported - failure messages are unhelpful un-illuminating</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=59">59</a> -  No error reported to user and crash when FFmpeg attempts invalid custom export of WAV with mp2 codec</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=387">387</a> - Mac/Linux: Text export for Contrast and Plot Spectrum does not supply extension if omitted</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=461">461</a> - MIDI or Allegro export filter does not enforce output format cross-platform </li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1180">1180</a> - Custom FFmpeg Export: an empty presets  list can be Exported</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1281">1281</a> - Windows: Plug-in manager does not properly disable SC4</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1477">1477</a> - Mac: Sticky Tooltips</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1567">1567</a> - Windows: DirectSound Sound Activated Recording does not record correctly or pauses permanently after 12 seconds</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1578">1578</a> - TXT and  XML exports are not to Documents and may require elevation to save</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1622">1622</a> - Cryptic error message when existing project cannot be saved</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1723">1723</a> - Keyboard Preferences: Closing subtrees can leave highlight on wrong item.</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1824">1824</a> - Preview fails (with Error Opening Sound Device) for built-in Generate effects when no selection</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1904">1904</a> - Audio offset not honored in Export/Export Multiple/Export Selection</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2099">2099</a> - 24-bit WAV (and AIFF) export is wrongly limited to 3GB</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2113">2113</a> - Label editor: After it closes, no control is the focus</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2118">2118</a> - "Q" shortcut for "Toggle Spectral Selection is not in the Standard set</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2122">2122</a> - Screenshot tool: no way to exit using the keyboard</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2120">2120</a> - Spectral Selection Toolbar can be truncated when undocked</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2169">2169</a> - Windows: Modules page of preferences is not read by NVDA screen reader</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2182">2182</a> - Updating Audacity can cause messed up toolbar layout</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2185">2185</a>- Import2: Incorrect error message if file not found</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2189">2189</a>- Bugs  that won't be fixed relating to on-demand loading of aliased external audio files</li>
+<li>P3 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2225">2225</a> - No error message when trying to delete with no selection</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=169">169</a> - Welcome Message: Local links to "Quick Help" and "Manual" do nothing if help is not installed.</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=240">240</a> - Time track selected by itself cannot be removed with Tracks&gt;Remove Tracks</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=440">440</a> - Metadata Editor: Tags without values can't be added</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=496">496</a> - Modifier keys ignored when focus is on time box in the Selection Toolbar </li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=590">590</a> - Win/Linux: Audacity crashes with LADSPA blop plug-ins</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=826">826</a> - Mis-handling of envelopes when split-deleting, or when cutting with cut lines enabled</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1058">1058</a> - Windows: Strange cursor changes  <i><b>Works for me on 2.3.2</b></i></li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1235">1235</a> - Linux: Mixer Board meters do not update when Meter Preferences are updated</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1269">1269</a> - "backslash percent" not saved in effect presets</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1411">1411</a> - Multiple non-modal "Help from the Internet" windows</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1582">1582</a> - Incorrect level shown in Mixer Board meter when track has positive gain</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1738">1738</a> - Numeric control units are not translated</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1742">1742</a> - Built-in Macro name "MP3 Conversion" does not translate</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2043">2043</a> - Access keys not shown (Japanese)</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2049">2049</a> - ENH: Noise Reduction error message for no selection is unhelpful </li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2107">2107</a> - Mac Accessibility: if a text box is the focus, pressing enter does not press the default button </li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2136">2136</a> - GetInfo: localization creates invalid JSON </li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2137">2137</a> - Nyquist: Assert when receiving multibyte characters </li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2138">2138</a> - Crossfade Tracks effect may desynchronize tracks</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2148">2148</a> - AUD-GET-INFO command fails if data contains backslash</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2154">2154</a> - selected audio: timeline and track show different selected time range</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2160">2160</a> - Shipped macros are not protected against edits. Edits can be made, but there is a Restore button</li>
+<li>P4 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1780">1780</a> - Sample Rate dialog does not appear when track has custom sample rate</li>
+<li>P5 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=680">680</a> - "Undo Recover" does not undo.</li>
+<li>P5 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=803">803</a> - Incorrect pointer (cursor) when rearranging tracks</li>
+<li>P5 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1200">1200</a>  - Unwanted duplicate .mo files on Mac.</li>
+<li>P5 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2100">2100</a> - AIFF exports GT 4GB are trapped but error message is only "WAV" - <i><b>German translation also OK now - was not so before</b></i></li></ul>
+<h3><span class="mw-headline" id="Equalization_bugs">Equalization bugs</span></h3>
+<ul><li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1750">1750</a> - Equalization: EQ control points can disappear if the points are at the same frequency</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2031">2031</a> - Equalization: presets under the Manage button do not save custom EQ curves</li>
+<li>P1 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2088">2088</a> - Graphic EQ ( and Filter Curve):  Manage button does not work</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=1722">1722</a> - Equalization effect: possible crash when using Manage &gt; User Presets</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2206">2206</a> - Filter Curve (and Graphic EQ) corrupt saved curves (on the right)</li>
+<li>P2 <a rel="nofollow" class="external text" href="https://bugzilla.audacityteam.org/show_bug.cgi?id=2207">2207</a> - Filter Curve and Graphic EQ have no factory presets (available in 2.3.2 and earlier)</li></ul>
 <p><br />
 </p><p><br />
 </p><p><br />
@@ -113,34 +223,33 @@
 <div id="appendix"></div>
 
 <h2><span class="mw-headline" id="Links">Links</span></h2>
-<p><a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Release_Notes_2.3.1"><b>&gt;</b> Audacity Release Notes 2.3.1</a> <i>- detailed release notes for this release of Audacity</i>
+<p><a rel="nofollow" class="external text" href="https://wiki.audacityteam.org/wiki/Release_Notes_2.3.3"><b>&gt;</b> Audacity Release Notes 2.3.3</a> <i>- detailed release notes for this release of Audacity</i>
 </p>
 <!-- 
 NewPP limit report
-Cached time: 20190308150859
+Cached time: 20191115032701
 Cache expiry: 86400
 Dynamic content: false
-CPU time usage: 0.086 seconds
-Real time usage: 0.092 seconds
-Preprocessor visited node count: 113/1000000
-Preprocessor generated node count: 330/1000000
-Post‐expand include size: 2154/2097152 bytes
-Template argument size: 1598/2097152 bytes
+CPU time usage: 0.085 seconds
+Real time usage: 0.087 seconds
+Preprocessor visited node count: 141/1000000
+Preprocessor generated node count: 340/1000000
+Post‐expand include size: 2522/2097152 bytes
+Template argument size: 1988/2097152 bytes
 Highest expansion depth: 3/40
 Expensive parser function count: 0/100
 -->
 
 <!-- 
 Transclusion expansion time report (%,ms,calls,template)
-100.00%   13.127      1 - -total
- 26.82%    3.521      1 - Template:Intro
- 15.93%    2.091      3 - Template:Ednote
- 15.43%    2.026      3 - Template:Menu
- 13.25%    1.739      1 - Template:Tip
- 12.89%    1.692      1 - Template:Note
+100.00%    8.356      1 - -total
+ 32.00%    2.674      2 - Template:Note
+ 28.14%    2.351      1 - Template:Intro
+ 21.08%    1.762      4 - Template:Ednote
+ 12.94%    1.081      1 - Template:Tip
 -->
 
-<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5555-0!*!0!!*!5!* and timestamp 20190308150859 and revision id 63365
+<!-- Saved in parser cache with key helpmediawiki:pcache:idhash:5555-0!*!0!!*!5!* and timestamp 20191115032700 and revision id 65658
  -->
 </div>
 										<!-- end content -->
@@ -175,7 +284,8 @@ Transclusion expansion time report (%,ms,calls,template)
 <ul><li> <a href="preferences.html" title="Preferences"><span title="A guide to Preferences, which let you change most of the default behaviors of Audacity">Preferences</span></a></li>
 <li> <a href="keyboard_shortcut_reference.html" title="Keyboard Shortcut Reference"><span title="A list of all the commands in the Audacity menus and all pre-defined keyboard shortcuts">Key-bindings</span></a></li>
 <li> <a href="customization.html#plug-ins" title="Customization"><span title="You can download and install plug-ins to add extra functionality to Audacity. Plug-ins can give you extra effects, or more audio generation and analysis capability.">Plug-ins</span></a></li>
-<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li></ul></li></ul>
+<li> <a href="themes.html" title="Themes"><span title="Audacity now comes supplied with four pre-configured, user-selectable themes. This enables you to choose the look and feel you prefer for Audacity&#39;s interface.">Themes</span></a></li>
+<li> <a href="customizing_toolbar_layout.html" title="Customizing Toolbar Layout"><span title="Audacity&#39;s toolbars can all be re-positioned (in the tooldocks or free-floating) and some can be resized.">Toolbars</span></a></li></ul></li></ul>
 		</div>
 		</div>
 		<div class="generated-sidebar portlet" id="p-Reference" role="navigation">
@@ -212,7 +322,7 @@ Transclusion expansion time report (%,ms,calls,template)
 									<a href="https://www.mediawiki.org/"><img src="../m/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/m/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /m/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>
 							</div>
 					
-		<div align="center"><ul id="f_list"><li>This version created on 2019-03-08 - <a href="https://alphamanual.audacityteam.org/man/New_features_in_this_release">Check current version of this page (development Manual)</a></li></ul></div>
+		<div align="center"><ul id="f_list"><li>This version created on 2019-11-15 - <a href="https://alphamanual.audacityteam.org/man/New_features_in_this_release">Check current version of this page (development Manual)</a></li></ul></div>
 </div>
 		</div>
 		</body></html>
